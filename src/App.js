@@ -30,7 +30,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <div>
-          <p className="App-intro">
+          <p>
             Counter value: {this.state.counter}
           </p>
           <div>
