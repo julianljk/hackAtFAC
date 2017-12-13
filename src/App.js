@@ -23,6 +23,7 @@ class App extends Component {
     })
   }
   render() {
+    let token = this.state.counter >= 0 ? "[̲̅$̲̅(̲̅1)̲̅$̲̅]" : "[̲̅$̲̅(̲̅-1)̲̅$̲̅]"
     return (
       <div className="App">
         <header className="App-header">
@@ -38,6 +39,9 @@ class App extends Component {
           </div>
           <div>
             {this.state.sliderValue}
+          </div>
+          <div>
+            {token.repeat(Math.abs(this.state.counter))}
           </div>
         </div>
       </div>
