@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Slider from './components/slider.jsx';
+import Printer from './components/printer.jsx';
 import logo from './logo.svg';
 import './App.css';
 
@@ -20,30 +22,29 @@ class App extends Component {
   onSliderChange = (e) => {
     this.setState({
       sliderValue: Number(e.target.value)
-    })
+    });
   }
   render() {
-    let token = this.state.counter >= 0 ? "[̲̅$̲̅(̲̅1)̲̅$̲̅]" : "[̲̅$̲̅(̲̅-1)̲̅$̲̅]"
+    let {
+      counter,
+      sliderValue
+    } = this.state;
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <div>
-          <p>
-            Counter value: {this.state.counter}
-          </p>
-          <div>
-            {-10} <input type="range" min={-10} max={10} step={1} onChange={this.onSliderChange} value={this.state.sliderValue}/> {10}
-          </div>
-          <div>
-            {this.state.sliderValue}
-          </div>
-          <div>
-            {token.repeat(Math.abs(this.state.counter))}
-          </div>
-        </div>
+        <Slider
+          counter={counter}
+          onSliderChange={this.onSliderChange}
+          sliderValue={sliderValue}
+        />
+        <Printer
+          value={counter}
+          negativeToken={"[̲̅$̲̅(̲̅-1)̲̅$̲̅]"}
+          positiveToken={"[̲̅$̲̅(̲̅1)̲̅$̲̅]"}
+        />
       </div>
     );
   }
