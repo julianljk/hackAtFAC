@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Slider from './components/slider.jsx';
 import Printer from './components/printer.jsx';
+import CryptoList from './components/cryptoList.jsx';
 import logo from './logo.svg';
 import './App.css';
 
@@ -43,9 +44,10 @@ class App extends Component {
                     <h1 className="App-title">Welcome to React</h1>
                 </header>
                 <button type="button" onClick={this.onToggle}>Toggle Slider</button>
+                <div className="component"> 
                 {
                     showSlider &&
-                    <div>
+                    <div className="slider-component">
                         <Slider
                             counter={counter}
                             onSliderChange={this.onSliderChange}
@@ -58,7 +60,10 @@ class App extends Component {
                         />
                     </div>
                 }
-
+                    <div className="list-component">
+                        <CryptoList /> 
+                    </div> 
+                </div> 
             </div>
         );
     }
