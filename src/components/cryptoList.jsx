@@ -24,8 +24,11 @@ class CryptoList extends Component {
             cryptos && <div> 
                 <ul>   
                 { 
-                    cryptos.map(x => (
-                        <li>{`${x.name} - ${x.price_usd}`}</li> 
+                cryptos
+                    .filter(x => x.price_usd < this.props.totalMoney)
+                    .sort((a, b) => b.price_usd - a.price_usd)
+                    .map(x => (
+                        <li key={x.id}>{`${x.name} - ${x.price_usd}`}</li> 
                     ))
                 }
                 </ul> 
