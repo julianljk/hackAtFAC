@@ -25,7 +25,7 @@ class CryptoList extends Component {
                 <ul>   
                 { 
                     cryptos.map(x => (
-                        <li>{x.id}</li> 
+                        <li>{`${x.name} - ${x.price_usd}`}</li> 
                     ))
                 }
                 </ul> 

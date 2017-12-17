@@ -19,7 +19,7 @@ class App extends Component {
             this.setState({
                 counter: this.state.counter + this.state.sliderValue
             });
-        }, 10000)
+        }, 1000000)
     }
     onSliderChange = (e) => {
         this.setState({
