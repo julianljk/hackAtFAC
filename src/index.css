@@ -8,6 +8,14 @@ body {
   justify-content: space-around;
 }
 
+.slider-component { 
+  flex: 0 1 700px;
+}
+
+.list-component ul{
+  list-style: none;
+}
+
 .list-component ul{
   list-style: none;
 }

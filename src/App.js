@@ -19,7 +19,7 @@ class App extends Component {
             this.setState({
                 counter: this.state.counter + this.state.sliderValue
             });
-        }, 1000000)
+        }, 1000)
     }
     onSliderChange = (e) => {
         this.setState({
@@ -61,7 +61,9 @@ class App extends Component {
                     </div>
                 }
                     <div className="list-component">
-                        <CryptoList /> 
+                        <CryptoList 
+                            totalMoney={counter}
+                        /> 
                     </div> 
                 </div> 
             </div>
