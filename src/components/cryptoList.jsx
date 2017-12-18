@@ -7,7 +7,7 @@ class CryptoList extends Component {
             cryptos: null 
         }
     }
-    componentWillMount() {
+    componentDidMount() {
         fetch("https://api.coinmarketcap.com/v1/ticker/")
             .then(res => res.json())
             .then(json => {

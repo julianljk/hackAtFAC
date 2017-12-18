@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
 
 class Slider extends Component {
+    componentWillReceiveProps() {
+        console.log("ComponentWillReceiveProps");
+    }
+    shouldComponentUpdate() {
+        console.log("ShouldComponentUpdate");
+        return true;
+    }
+    componentWillUpdate() {
+        console.log("ComponentWillUpdate");
+    }
+    componentDidUpdate() {
+        console.log("componentDidUpdate");
+    }
     componentWillMount() {
         console.log("mouting");
     }
