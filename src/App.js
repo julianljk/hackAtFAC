@@ -5,26 +5,23 @@ import CryptoList from './components/cryptoList.jsx';
 import logo from './logo.svg';
 import './App.css';
 
+import { connect } from 'react-redux';
+import { addToCounter, setSliderValue } from './actions/counterActions.js';
+
 class App extends Component {
     constructor() {
         super();
         this.state = {
-            counter: 0,
-            sliderValue: 0,
             showSlider: true
         }
     }
     componentWillMount() {
         setInterval(() => {
-            this.setState({
-                counter: this.state.counter + this.state.sliderValue
-            });
+          this.props.dispatch(addToCounter());
         }, 1000)
     }
     onSliderChange = (e) => {
-        this.setState({
-            sliderValue: Number(e.target.value)
-        });
+      this.props.dispatch(setSliderValue(Number(e.target.value)))
     }
     onToggle = (e) => {
         this.setState({
@@ -33,10 +30,9 @@ class App extends Component {
     }
     render() {
         let {
-			counter,
-            sliderValue,
-            showSlider
-		} = this.state;
+          counter,
+          sliderValue
+        } = this.props;
         return (
             <div className="App">
                 <header className="App-header">
@@ -46,7 +42,7 @@ class App extends Component {
                 <button type="button" onClick={this.onToggle}>Toggle Slider</button>
                 <div className="component"> 
                 {
-                    showSlider &&
+                    this.state.showSlider &&
                     <div className="slider-component">
                         <Slider
                             counter={counter}
@@ -71,4 +67,10 @@ class App extends Component {
     }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    counter: state.counter.counter, 
+    sliderValue: state.counter.sliderValue
+  }
+}
+export default connect(mapStateToProps)(App);
