@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-const crypto = (state, action) => {
+const crypto = (state = null, action) => {
   switch(action.type) {
     case 'ACTION_THING':
       return true;
